@@ -4,7 +4,10 @@
         <div><p><strong>Prix Mega:</strong> {{ pizza.megaPrix }} DA</p></div>
         <div><p><strong>Prix Normal:</strong> {{ pizza.normalPrix }} DA</p></div>
 
-        <div><button (click)="goBack()">🔙 Retour à la liste</button></div>
+        <div>
+            <button (click)="goBack()">🔙 Retour à la liste</button>
+            <button (click)="editPizza()">✏ Modifier</button>
+        </div>
     </div>
 </div>
 

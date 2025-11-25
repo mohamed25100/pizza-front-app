@@ -43,5 +43,8 @@ export class PizzaComponent implements OnInit {
   goBack(): void {
     this.router.navigate(['/pizzas']);
   }
+  editPizza() {
+    this.router.navigate(['/pizzas/edit', this.pizzaId]);
+  }
 
 }

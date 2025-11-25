@@ -19,4 +19,8 @@ export class PizzaService {
   delete(id: number, keyword: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
+  public updatePizza(id: number, pizza: Pizza) {
+    return this.http.put(`${this.apiUrl}/${id}`, pizza);
+  }
+
 }

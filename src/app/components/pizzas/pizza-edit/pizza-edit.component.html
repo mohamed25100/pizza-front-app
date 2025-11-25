@@ -1,0 +1,18 @@
+<h2>Modifier la Pizza</h2>
+
+<div *ngIf="pizza">
+
+  <label>Nom :</label>
+  <input type="text" [(ngModel)]="pizza.nom">
+
+  <label>Prix Mega :</label>
+  <input type="number" [(ngModel)]="pizza.megaPrix">
+
+  <label>Prix Normal :</label>
+  <input type="number" [(ngModel)]="pizza.normalPrix">
+
+  <button (click)="updatePizza()">💾 Enregistrer</button>
+  <button (click)="cancel()">❌ Annuler</button>
+
+
+</div>

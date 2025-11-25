@@ -8,6 +8,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SandwichComponent } from './components/pizzas/sandwich/sandwich.component';
 import { PizzaComponent } from './components/pizzas/pizza/pizza.component';
+import { PizzaEditComponent } from './components/pizzas/pizza-edit/pizza-edit.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { PizzaComponent } from './components/pizzas/pizza/pizza.component';
     PizzasComponent,
     NotFoundComponent,
     PizzaComponent,
-    SandwichComponent
+    SandwichComponent,
+    PizzaEditComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
