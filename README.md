@@ -1,5 +1,12 @@
 # PizzaFrontApp
 
+ng g c components/pizzas
+
+ng g s services
+
+npm install json-server@0.17.0 concurrently
+
+npm run start
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.
 
 ## Development server

@@ -1,0 +1,133 @@
+{
+    "pizzas": [
+        {
+            "id": 1,
+            "nom": "Pizza fromages",
+            "megaPrix": 650.0,
+            "normalPrix": 250.0
+        },
+        {
+            "id": 2,
+            "nom": "Pizza viande hachée",
+            "megaPrix": 900.0,
+            "normalPrix": 350.0
+        },
+        {
+            "id": 3,
+            "nom": "Pizza thon",
+            "megaPrix": 900.0,
+            "normalPrix": 350.0
+        },
+        {
+            "id": 4,
+            "nom": "Pizza champignons",
+            "megaPrix": 900.0,
+            "normalPrix": 350.0
+        },
+        {
+            "id": 5,
+            "nom": "Pizza anchois",
+            "megaPrix": 1100.0,
+            "normalPrix": 400.0
+        },
+        {
+            "id": 6,
+            "nom": "Pizza poulet",
+            "megaPrix": 1100.0,
+            "normalPrix": 400.0
+        },
+        {
+            "id": 7,
+            "nom": "Pizza viande hachée champignons",
+            "megaPrix": 1200.0,
+            "normalPrix": 450.0
+        },
+        {
+            "id": 8,
+            "nom": "Pizza thon champignons",
+            "megaPrix": 1200.0,
+            "normalPrix": 450.0
+        },
+        {
+            "id": 9,
+            "nom": "Pizza crème fraîche cheddar",
+            "megaPrix": 2100.0,
+            "normalPrix": 800.0
+        },
+        {
+            "id": 10,
+            "nom": "Pizza royal",
+            "megaPrix": 2100.0,
+            "normalPrix": 800.0
+        },
+        {
+            "id": 11,
+            "nom": "Pizza végetarienne",
+            "megaPrix": 2100.0,
+            "normalPrix": 800.0
+        },
+        {
+            "id": 12,
+            "nom": "Pizza trois fromages",
+            "megaPrix": 2100.0,
+            "normalPrix": 800.0
+        },
+        {
+            "id": 13,
+            "nom": "Pizza thon champignons viande hachée",
+            "megaPrix": 1600.0,
+            "normalPrix": 600.0
+        },
+        {
+            "id": 14,
+            "nom": "Pizza Spécial du chef",
+            "megaPrix": 2400.0,
+            "normalPrix": 900.0
+        },
+        {
+            "id": 15,
+            "nom": "Pizza quatre fromages",
+            "megaPrix": 2600.0,
+            "normalPrix": 1000.0
+        },
+        {
+            "id": 16,
+            "nom": "Pizza quatre saisons",
+            "megaPrix": 2600.0,
+            "normalPrix": 1000.0
+        },
+        {
+            "id": 17,
+            "nom": "Pizza fruits de mer",
+            "megaPrix": 2800.0,
+            "normalPrix": 1200.0
+        }
+    ],
+    "sandwiches": [
+        {
+            "id": 1,
+            "nom": "Tacos Poulet Mariné",
+            "prix": 5.0
+        },
+        {
+            "id": 2,
+            "nom": "Tacos Viande Hachée",
+            "prix": 5.0
+        },
+        {
+            "id": 3,
+            "nom": "Tacos Mixte",
+            "prix": 5.0
+        },
+        {
+            "id": 4,
+            "nom": "Hamburger",
+            "prix": 5.0
+        },
+        {
+            "id": 5,
+            "nom": "Hamburger Spéciale",
+            "prix": 5.0
+        }
+    ]
+}

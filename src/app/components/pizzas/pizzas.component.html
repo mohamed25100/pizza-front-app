@@ -1,0 +1,70 @@
+<!-- HEADER -->
+<header class="py-50">
+  <nav>
+    <div>
+      <a routerLink="/">🍕 Bazine Food</a>
+
+      <div>
+        <ul>
+          <li routerLinkActive="active"><a routerLink="/">Pizzas</a></li>
+          <li routerLinkActive="active"><a routerLink="/">Sandwichs</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div>
+    <h1>Bienvenue chez Bazine Pizza</h1>
+    <p>La meilleure pizza de votre vie 🍕🔥</p>
+  </div>
+</header>
+
+<!-- PIZZA LIST -->
+<section class="py-50">
+  <div>
+    <table class="pizza-table">
+      <thead>
+        <tr>
+          <th>Nos Pizzas</th>
+          <th>Mega</th>
+          <th>Normal</th>
+          <th>Nos Pizzas</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let pizza of listPizzas">
+          <td>{{ pizza.nom }}</td>
+          <td>{{ pizza.megaPrix }} €</td>
+          <td>{{ pizza.normalPrix }} €</td>
+          <td>{{ pizza.nom }}</td>
+        </tr>
+      </tbody>
+
+    </table>
+
+    <table class="sandwich-table">
+      <thead>
+        <tr>
+          <th>Nos Sandwiches</th>
+          <th>Prix</th>
+          <th>Nos Sandwiches</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let sandwich of listSandwiches">
+          <td>{{ sandwich.nom }}</td>
+          <td>{{ sandwich.prix }} €</td>
+          <td>{{ sandwich.nom }}</td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Bazine Pizza - Le goût de l’Italie 🍕</p>
+</footer>

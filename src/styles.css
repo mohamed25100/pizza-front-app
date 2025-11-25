@@ -1,1 +1,155 @@
 /* You can add global styles to this file, and also import other style files */
+/* ======= GLOBAL ======= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    background-color: #4a2f1a;
+    padding: 12px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav>div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+nav>div>a {
+    font-size: 1.4rem;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+nav li a {
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+
+/* Effet hover */
+nav li a:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Classe Angular routerLinkActive */
+.active a {
+    background: rgba(255, 255, 255, 0.35);
+    color: #fff;
+}
+
+.py-50 {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.pizza-table , .sandwich-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: "Georgia", serif;
+    background: #d7b896;
+    /* couleur bois clair */
+    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+    border: 4px solid #8b5a2b;
+    /* contour bois foncé */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.pizza-table thead th , .sandwich-table thead th {
+    padding: 12px;
+    background-color: #a9744f;
+    /* bois moyen */
+    color: #fff8e6;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px #000;
+    border-bottom: 3px solid #8b5a2b;
+}
+
+.pizza-table tbody td , .sandwich-table tbody td {
+    padding: 12px;
+    border-bottom: 2px solid #b18760;
+    font-size: 1rem;
+    color: #4a2f1a;
+}
+
+.pizza-table tbody tr:nth-child(even) , .sandwich-table tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.2);
+    /* alternance légère */
+}
+
+.pizza-table tbody tr:hover, .sandwich-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.35);
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.pizza-table td,
+.pizza-table th, .sandwich-table td, .sandwich-table th {
+    border-right: 2px solid #b18760;
+}
+
+.pizza-table td:last-child,
+.pizza-table th:last-child, .sandwich-table td:last-child, .sandwich-table th:last-child {
+    border-right: none;
+}
+
+
+footer {
+    margin-top: 50px;
+    padding: 20px 0;
+    text-align: center;
+    color: #f8e7c3;
+    /* couleur claire façon bois/laine */
+    font-weight: 600;
+    font-size: 1.1rem;
+
+    /* Fond bois */
+    background-color: #4a2f1a;
+    background-size: cover;
+    background-position: center;
+
+    /* Superposition sombre pour readability */
+    position: relative;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    /* assombrit pour contraste */
+}
+
+footer p {
+    position: relative;
+    /* pour passer au-dessus du ::before */
+    margin: 0;
+    font-family: "Georgia", serif;
+    letter-spacing: 1px;
+}
