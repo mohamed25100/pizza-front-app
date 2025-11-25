@@ -1,0 +1,14 @@
+<div id="section">
+  <div *ngIf="sandwich; else loading" class="sandwich-detail">
+
+    <div><h2>{{ sandwich.nom }}</h2></div>
+    <div><p><strong>Prix :</strong> {{ sandwich.prix }} DA</p></div>
+
+    <div><button (click)="goBack()">🔙 Retour à la liste</button></div>
+
+  </div>
+</div>
+
+<ng-template #loading>
+  <p>Chargement du sandwich...</p>
+</ng-template>

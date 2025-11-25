@@ -15,7 +15,7 @@ export class SandwichService {
     return this.http.get<Sandwich[]>(`${this.apiUrl}`);
   }
 
-  public getSandwich(id: number) {
+  public getSandwichById(id: number) {
     return this.http.get<Sandwich>(`${this.apiUrl}/${id}`);
   }
 }

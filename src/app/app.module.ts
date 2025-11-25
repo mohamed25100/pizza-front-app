@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { PizzasComponent } from './components/pizzas/pizzas.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SandwichComponent } from './components/pizzas/sandwich/sandwich.component';
+import { PizzaComponent } from './components/pizzas/pizza/pizza.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PizzasComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    PizzaComponent,
+    SandwichComponent
   ],
   imports: [
     BrowserModule,

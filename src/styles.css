@@ -43,7 +43,6 @@ nav ul {
 nav li a {
     padding: 6px 10px;
     border-radius: 6px;
-    transition: background 0.2s, color 0.2s;
 }
 
 /* Effet hover */

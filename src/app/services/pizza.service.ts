@@ -13,7 +13,7 @@ export class PizzaService {
     return this.http.get<Pizza[]>(`${this.apiUrl}`);
   }
 
-  public getPizza(id: number) {
+  public getPizzaById(id: number) {
     return this.http.get<Pizza>(`${this.apiUrl}/${id}`);
   }
   delete(id: number, keyword: string): Observable<void> {

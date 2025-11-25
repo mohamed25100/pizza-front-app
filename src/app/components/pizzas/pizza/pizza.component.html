@@ -1,0 +1,13 @@
+<div id="section">
+    <div *ngIf="pizza; else loading" class="pizza-detail">
+        <div><h2>{{ pizza.nom }}</h2></div>
+        <div><p><strong>Prix Mega:</strong> {{ pizza.megaPrix }} DA</p></div>
+        <div><p><strong>Prix Normal:</strong> {{ pizza.normalPrix }} DA</p></div>
+
+        <div><button (click)="goBack()">🔙 Retour à la liste</button></div>
+    </div>
+</div>
+
+<ng-template #loading>
+    <p>Chargement de la pizza...</p>
+</ng-template>

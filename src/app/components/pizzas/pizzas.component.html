@@ -33,10 +33,10 @@
       </thead>
 
       <tbody>
-        <tr *ngFor="let pizza of listPizzas">
+        <tr *ngFor="let pizza of listPizzas" (click)="goToPizzaDetail(pizza.id)" style="cursor:pointer;">
           <td>{{ pizza.nom }}</td>
-          <td>{{ pizza.megaPrix }} €</td>
-          <td>{{ pizza.normalPrix }} €</td>
+          <td>{{ pizza.megaPrix }} DA</td>
+          <td>{{ pizza.normalPrix }} DA</td>
           <td>{{ pizza.nom }}</td>
         </tr>
       </tbody>
@@ -53,9 +53,9 @@
       </thead>
 
       <tbody>
-        <tr *ngFor="let sandwich of listSandwiches">
+        <tr *ngFor="let sandwich of listSandwiches" (click)="goToSandwichDetail(sandwich.id)" style="cursor:pointer;">
           <td>{{ sandwich.nom }}</td>
-          <td>{{ sandwich.prix }} €</td>
+          <td>{{ sandwich.prix }} DA</td>
           <td>{{ sandwich.nom }}</td>
         </tr>
       </tbody>
