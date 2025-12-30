@@ -18,4 +18,8 @@ export class SandwichService {
   public getSandwichById(id: number) {
     return this.http.get<Sandwich>(`${this.apiUrl}/${id}`);
   }
+
+  public updateSandwich(id: number, sandwich: Sandwich) {
+    return this.http.put(`${this.apiUrl}/${id}`, sandwich);
+  }
 }

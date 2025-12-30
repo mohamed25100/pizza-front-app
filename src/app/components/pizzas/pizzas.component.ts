@@ -21,9 +21,6 @@ export class PizzasComponent implements OnInit {
   }
 
 
-  /**
-   * Retrieve all sandwiches from the API and store them in the component's listSandwiches property.
-   */
   getAllSandwiches() {
     this.sandwichService.getSandwiches().subscribe((sandwiches: Sandwich[]) => {
       this.listSandwiches = sandwiches;

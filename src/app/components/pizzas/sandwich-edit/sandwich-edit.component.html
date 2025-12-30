@@ -1,0 +1,13 @@
+<h2>Modifier le Sandwich</h2>
+
+<div *ngIf="sandwich">
+
+    <label>Nom :</label>
+    <input type="text" [(ngModel)]="sandwich.nom">
+
+    <label>Prix :</label>
+    <input type="number" [(ngModel)]="sandwich.prix">
+
+    <button (click)="updateSandwich()">💾 Enregistrer</button>
+    <button (click)="cancel()">❌ Annuler</button>
+</div>

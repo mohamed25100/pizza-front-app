@@ -4,32 +4,27 @@ import { Sandwich } from 'src/app/model/sandwich.model';
 import { SandwichService } from 'src/app/services/sandwich.service';
 
 @Component({
-  selector: 'app-sandwich',
-  templateUrl: './sandwich.component.html',
-  styleUrls: ['./sandwich.component.css']
+  selector: 'app-sandwich-edit',
+  templateUrl: './sandwich-edit.component.html',
+  styleUrls: ['./sandwich-edit.component.css']
 })
-export class SandwichComponent implements OnInit {
+export class SandwichEditComponent implements OnInit {
 
   sandwichId!: number;
-  sandwich!: Sandwich | undefined;
-
+  sandwich: Sandwich = new Sandwich(0, '', 0);
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private sandwichService: SandwichService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-    // Récupère l'ID depuis l'URL
     this.sandwichId = Number(this.route.snapshot.paramMap.get('id'));
-    this.getSandwichDetail(this.sandwichId);
+    this.loadSandwich();
   }
 
-  /**
-   * Récupère un sandwich depuis l’API
-   */
-  getSandwichDetail(id: number) {
-    this.sandwichService.getSandwichById(id).subscribe({
+  loadSandwich() {
+    this.sandwichService.getSandwichById(this.sandwichId).subscribe({
       next: (sandwich: Sandwich) => {
         this.sandwich = sandwich;
       },
@@ -39,11 +34,15 @@ export class SandwichComponent implements OnInit {
     });
   }
 
-  goBack(): void {
-    this.router.navigate(['/pizzas']);
+  updateSandwich() {
+    this.sandwichService.updateSandwich(this.sandwichId, this.sandwich).subscribe({
+      next: () => this.router.navigate(['/sandwiches']),
+      error: err => console.error("Erreur mise à jour :", err)
+    });
   }
-  editSandwich() {
-    this.router.navigate(['/sandwiches/edit', this.sandwichId]);
+
+  cancel() {
+    this.router.navigate(['/sandwiches']);
   }
 
 }

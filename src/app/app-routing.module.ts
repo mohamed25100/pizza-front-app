@@ -5,6 +5,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { PizzaComponent } from './components/pizzas/pizza/pizza.component';
 import { SandwichComponent } from './components/pizzas/sandwich/sandwich.component';
 import { PizzaEditComponent } from './components/pizzas/pizza-edit/pizza-edit.component';
+import { SandwichEditComponent } from './components/pizzas/sandwich-edit/sandwich-edit.component';
 
 const routes: Routes = [
   {
@@ -23,10 +24,16 @@ const routes: Routes = [
     path: '', redirectTo: 'pizzas', pathMatch: 'full'
   },
   {
+    path: 'sandwiches', redirectTo: 'pizzas', pathMatch: 'full'
+  },
+  {
     path: '404', component: NotFoundComponent
   },
-  { 
+  {
     path: 'pizzas/edit/:id', component: PizzaEditComponent,
+  },
+  {
+    path: 'sandwiches/edit/:id', component: SandwichEditComponent,
   },
   {
     path: '**', redirectTo: '/404'

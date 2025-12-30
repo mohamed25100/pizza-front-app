@@ -4,7 +4,10 @@
     <div><h2>{{ sandwich.nom }}</h2></div>
     <div><p><strong>Prix :</strong> {{ sandwich.prix }} DA</p></div>
 
-    <div><button (click)="goBack()">🔙 Retour à la liste</button></div>
+    <div>
+      <button (click)="goBack()">🔙 Retour à la liste</button>
+      <button (click)="editSandwich()">✏ Modifier</button>
+    </div>
 
   </div>
 </div>
