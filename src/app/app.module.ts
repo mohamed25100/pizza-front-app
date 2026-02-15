@@ -10,13 +10,15 @@ import { CommonModule } from '@angular/common';
 import { MenuComponent } from './features/menu/menu.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './features/auth/login/login.component';
+import { RegisterComponent } from './features/auth/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuListComponent,
     MenuComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
