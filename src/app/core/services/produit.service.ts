@@ -23,6 +23,16 @@ export class ProduitService {
   }
 
   /**
+   * Récupérer un produit par son id
+   * @param id number - Identifiant du produit
+   * @returns Observable<ProduitResponseDTO> - Produit demandé
+   */
+  getById(id: number) {
+  return this.http.get<ProduitResponseDTO>(`${this.apiUrl}/${id}`);
+}
+
+
+  /**
    * Récupérer produits par catégorie
    */
   getByCategorie(idCategorie: number): Observable<ProduitResponseDTO[]> {

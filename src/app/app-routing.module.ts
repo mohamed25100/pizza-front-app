@@ -13,11 +13,13 @@ import { DashboardAdminComponent } from './features/admin/dashboard-admin.compon
 import { AuthGuard } from './core/guards/auth.guard';
 import { AdminGuard } from './core/guards/admin.guard';
 import { MenuListComponent } from './features/menu-list/menu-list.component';
+import { MenuComponent } from './features/menu/menu.component';
 
 const routes: Routes = [
 
   // 🟢 Menu public
   { path: '', component: MenuListComponent },
+    { path: 'produit/:id', component: MenuComponent },
 
   // 🟢 Auth public
   { path: 'login', component: LoginComponent },

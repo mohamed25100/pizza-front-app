@@ -1,1 +1,38 @@
-<p>menu works!</p>
+<div class="detail" *ngIf="produit$ | async as p; else loading">
+
+  <div class="card">
+    <div class="img">
+      <img *ngIf="p.imageUrl; else noimg" [src]="p.imageUrl" alt="{{p.nom}}" />
+      <ng-template #noimg>
+        <div class="placeholder">🍕</div>
+      </ng-template>
+    </div>
+
+    <div class="info">
+      <h2>{{ p.nom }}</h2>
+      <p class="desc">{{ p.description }}</p>
+
+      <div class="prices">
+        <div class="price-box">
+          <span class="label">Prix normal</span>
+          <span class="value">{{ p.normalPrix | number:'1.2-2' }} DA</span>
+        </div>
+
+        <div class="price-box">
+          <span class="label">Prix mega</span>
+          <span class="value">{{ p.megaPrix | number:'1.2-2' }} DA</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="btn ghost" routerLink="/">← Retour au menu</a>
+        <button class="btn primary">Ajouter au panier</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<ng-template #loading>
+  <p>Chargement du produit…</p>
+</ng-template>
