@@ -1,6 +1,17 @@
 # SuperPizzaFront
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.
+ng g module core
+ng g module features/menu --routing
+ng g module features/auth --routing
+ng g module features/cart --routing
+ng g module features/orders --routing
+ng g module features/admin --routing
+
+ng g service core/services/auth
+ng g service core/services/produit
+ng g service core/services/cart
+ng g service core/services/commande
+ng g service core/services/admin
 
 ## Development server
 
