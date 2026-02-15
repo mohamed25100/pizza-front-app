@@ -8,7 +8,8 @@ import { MenuRoutingModule } from './menu-routing.module';
   declarations: [],
   imports: [
     CommonModule,
-    MenuRoutingModule
+    MenuRoutingModule,
+    CommonModule
   ]
 })
 export class MenuModule { }
