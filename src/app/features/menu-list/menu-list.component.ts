@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, map } from 'rxjs'; 
+import { Observable, map } from 'rxjs';
+import { CartService } from 'src/app/core/services/cart.service';
 import { ProduitService } from 'src/app/core/services/produit.service';
 import { ProduitResponseDTO } from 'src/app/models/produit.model';
 
@@ -18,8 +19,13 @@ export class MenuListComponent implements OnInit {
   pizzas$!: Observable<ProduitResponseDTO[]>;
   sandwiches$!: Observable<ProduitResponseDTO[]>;
   displayed$!: Observable<ProduitResponseDTO[]>;
+  cart$ = this.cartService.cart$;
 
-  constructor(private produitService: ProduitService) {}
+  constructor(
+    private produitService: ProduitService,
+    private cartService: CartService
+  ) { }
+
 
   ngOnInit(): void {
     this.produits$ = this.produitService.getAll();
@@ -43,4 +49,20 @@ export class MenuListComponent implements OnInit {
   trackById(_: number, p: ProduitResponseDTO) {
     return p.idProduit;
   }
+
+  addToCart(p: ProduitResponseDTO) {
+    this.cartService.addToCart(p);
+  }
+
+
+
+  get total(): number {
+    return this.cartService.getTotal();
+  }
+
+  updateQty(item: any, qty: number) {
+    this.cartService.updateQuantity(item.produit.idProduit, qty);
+  }
+
+
 }
