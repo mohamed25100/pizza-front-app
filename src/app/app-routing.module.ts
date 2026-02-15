@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-// Pages
-import { MenuComponent } from './features/menu/menu.component';
+// Pages 
 import { LoginComponent } from './features/auth/login/login.component';
 import { RegisterComponent } from './features/auth/register/register.component';
 import { PanierComponent } from './features/panier/panier.component';
@@ -13,11 +12,12 @@ import { DashboardAdminComponent } from './features/admin/dashboard-admin.compon
 // Guards
 import { AuthGuard } from './core/guards/auth.guard';
 import { AdminGuard } from './core/guards/admin.guard';
+import { MenuListComponent } from './features/menu-list/menu-list.component';
 
 const routes: Routes = [
 
   // 🟢 Menu public
-  { path: '', component: MenuComponent },
+  { path: '', component: MenuListComponent },
 
   // 🟢 Auth public
   { path: 'login', component: LoginComponent },

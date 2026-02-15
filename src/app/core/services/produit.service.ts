@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, shareReplay } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { ProduitResponseDTO } from '../../models/produit.model';
 
@@ -17,7 +17,9 @@ export class ProduitService {
    * Récupérer tous les produits (menu public)
    */
   getAll(): Observable<ProduitResponseDTO[]> {
-    return this.http.get<ProduitResponseDTO[]>(this.apiUrl);
+    return this.http.get<ProduitResponseDTO[]>(this.apiUrl).pipe(
+      shareReplay(1) // perf: évite plusieurs appels
+    );
   }
 
   /**

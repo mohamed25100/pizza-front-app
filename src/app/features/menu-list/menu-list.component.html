@@ -1,0 +1,108 @@
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <span class="pill">L’Art du Goût</span>
+      <h1>
+        Des Pizzas &amp; Sandwiches<br />
+        <span class="accent">Artisanaux</span>
+      </h1>
+
+      <p class="subtitle">
+        Découvrez notre sélection de recettes exclusives préparées avec des ingrédients frais,
+        livrées chez vous en moins de 30 minutes.
+      </p>
+
+      <div class="hero-actions">
+        <button class="btn primary">Commander Maintenant</button>
+        <button class="btn ghost">Voir les Promotions</button>
+      </div>
+
+      <div class="hero-badges">
+        <span class="badge">⭐ 4.9/5 Avis Clients</span>
+        <span class="badge">⏱ Livraison 25 min</span>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-card">
+        <img src="assets/hero-pizza.png" alt="Pizza" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu">
+  <div class="menu-header">
+    <div>
+      <h2>Notre Menu</h2>
+      <p>Sélectionnez vos plats favoris parmi nos créations artisanales.</p>
+    </div>
+
+    <div class="tabs">
+      <button class="tab" [class.active]="tab==='PIZZA'" (click)="selectTab('PIZZA')">Nos Pizzas</button>
+      <button class="tab" [class.active]="tab==='SANDWICH'" (click)="selectTab('SANDWICH')">Nos Sandwiches</button>
+    </div>
+  </div>
+
+  <div class="menu-grid">
+    <!-- LISTE PRODUITS -->
+    <div class="products" *ngIf="displayed$ | async as produits; else loading">
+      <div class="cards">
+        <article class="product-card" *ngFor="let p of produits; trackBy: trackById">
+          <div class="img-wrap">
+            <img *ngIf="p.imageUrl; else noimg" [src]="p.imageUrl" alt="{{p.nom}}" loading="lazy" />
+            <ng-template #noimg>
+              <div class="img-placeholder">🍕</div>
+            </ng-template>
+            <span class="chip">Populaire</span>
+          </div>
+
+          <div class="content">
+            <div class="top">
+              <h3>{{ p.nom }}</h3>
+              <div class="price">{{ p.normalPrix | number:'1.2-2' }} DA</div>
+            </div>
+            <p class="desc">{{ p.description }}</p>
+
+            <div class="actions">
+              <button class="btn small primary">Ajouter au panier</button>
+              <button class="btn small ghost">›</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <ng-template #loading>
+      <div class="loading">Chargement du menu…</div>
+    </ng-template>
+
+    <!-- PANIER (pour l’UI US1) -->
+    <aside class="cart">
+      <div class="cart-head">
+        <div>
+          <h3>Votre Panier</h3>
+          <p class="small">0 articles</p>
+        </div>
+      </div>
+
+      <div class="cart-body empty">
+        <div class="plus">+</div>
+        <div class="title">Votre panier est vide</div>
+        <div class="hint">Ajoutez vos délices préférés pour commencer !</div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- BANDEAU CONTACT -->
+  <div class="contact-box">
+    <div>
+      <h3>Vous ne trouvez pas votre bonheur ?</h3>
+      <p>Contactez notre chef pour une commande personnalisée ou découvrez nos options pour événements.</p>
+      <button class="btn ghost">Nous contacter</button>
+    </div>
+    <div class="icon">🔥</div>
+  </div>
+</section>

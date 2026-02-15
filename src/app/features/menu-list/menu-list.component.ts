@@ -6,11 +6,11 @@ import { ProduitResponseDTO } from 'src/app/models/produit.model';
 type Tab = 'PIZZA' | 'SANDWICH';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  selector: 'app-menu-list',
+  templateUrl: './menu-list.component.html',
+  styleUrls: ['./menu-list.component.css']
 })
-export class MenuComponent implements OnInit {
+export class MenuListComponent implements OnInit {
 
   tab: Tab = 'PIZZA';
 
