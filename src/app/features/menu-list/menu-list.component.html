@@ -96,18 +96,31 @@
                 Panier vide
             </div>
 
+            <!-- PANIER (pour l’UI US3) -->
             <div *ngFor="let item of cart" class="cart-item">
+
                 <div class="row">
                     <strong>{{ item.produit.nom }}</strong>
                     <span>{{ item.produit.normalPrix | number:'1.2-2' }} DA</span>
                 </div>
 
                 <div class="qty">
-                    <button (click)="item.quantity > 1 && updateQty(item, item.quantity - 1)">-</button>
-                    <span>{{ item.quantity }}</span>
+
+                    <button (click)="updateQty(item, item.quantity - 1)">-</button>
+
+                    <input type="number" [value]="item.quantity" min="1"
+                        (change)="updateQty(item, $any($event.target).value)" />
+
                     <button (click)="updateQty(item, item.quantity + 1)">+</button>
+
+                    <button class="remove" (click)="remove(item.produit.idProduit)">
+                        ✕
+                    </button>
+
                 </div>
+
             </div>
+
 
             <div class="cart-total">
                 Total :

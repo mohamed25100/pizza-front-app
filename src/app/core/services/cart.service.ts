@@ -18,17 +18,17 @@ export class CartService {
     return data ? JSON.parse(data) : [];
   }
 
-  private saveCart(cart: CartItem[]) {
+  private save(cart: CartItem[]) {
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
     this.cartSubject.next(cart);
   }
 
-  getCart(): CartItem[] {
+  private get cart(): CartItem[] {
     return this.cartSubject.value;
   }
 
   addToCart(produit: ProduitResponseDTO) {
-    const cart = this.getCart();
+    const cart = [...this.cart];
     const existing = cart.find(i => i.produit.idProduit === produit.idProduit);
 
     if (existing) {
@@ -37,37 +37,41 @@ export class CartService {
       cart.push({ produit, quantity: 1 });
     }
 
-    this.saveCart(cart);
+    this.save(cart);
   }
 
   updateQuantity(idProduit: number, quantity: number) {
-    const cart = this.getCart().map(item =>
+    if (quantity <= 0) {
+      this.remove(idProduit);
+      return;
+    }
+
+    const cart = this.cart.map(item =>
       item.produit.idProduit === idProduit
-        ? { ...item, quantity: quantity }
+        ? { ...item, quantity }
         : item
     );
-    this.saveCart(cart);
+
+    this.save(cart);
   }
 
   remove(idProduit: number) {
-    const cart = this.getCart().filter(i => i.produit.idProduit !== idProduit);
-    this.saveCart(cart);
+    const cart = this.cart.filter(i => i.produit.idProduit !== idProduit);
+    this.save(cart);
   }
 
   clear() {
-    this.saveCart([]);
+    this.save([]);
   }
 
   getTotal(): number {
-    return this.getCart()
-      .reduce((total, item) =>
-        total + item.produit.normalPrix * item.quantity,
-        0
-      );
+    return this.cart.reduce((total, item) =>
+      total + item.produit.normalPrix * item.quantity,
+      0
+    );
   }
 
   getTotalItems(): number {
-    return this.getCart()
-      .reduce((total, item) => total + item.quantity, 0);
+    return this.cart.reduce((total, item) => total + item.quantity, 0);
   }
 }

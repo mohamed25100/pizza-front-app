@@ -61,8 +61,11 @@ export class MenuListComponent implements OnInit {
   }
 
   updateQty(item: any, qty: number) {
-    this.cartService.updateQuantity(item.produit.idProduit, qty);
+    this.cartService.updateQuantity(item.produit.idProduit, Number(qty));
   }
 
+  remove(id: number) {
+    this.cartService.remove(id);
+  }
 
 }
