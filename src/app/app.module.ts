@@ -8,18 +8,22 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { MenuListComponent } from './features/menu-list/menu-list.component';
 import { CommonModule } from '@angular/common';
 import { MenuComponent } from './features/menu/menu.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './features/auth/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuListComponent,
-    MenuComponent
+    MenuComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
+    ReactiveFormsModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
