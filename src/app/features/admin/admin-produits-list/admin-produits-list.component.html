@@ -1,0 +1,31 @@
+<div class="head">
+  <h2>Produits</h2>
+  <a class="btn primary" routerLink="/admin/produits/create">+ Ajouter</a>
+</div>
+
+<p class="error" *ngIf="errorMsg">{{ errorMsg }}</p>
+<p *ngIf="loading">Chargement...</p>
+
+<div class="table" *ngIf="!loading">
+  <div class="row th">
+    <div>Nom</div>
+    <div>Catégorie</div>
+    <div>Prix normal</div>
+    <div>Prix mega</div>
+    <div class="actions">Actions</div>
+  </div>
+
+  <div class="row" *ngFor="let p of produits">
+    <div class="name">
+      <img *ngIf="p.imageUrl" [src]="p.imageUrl" alt="" />
+      <span>{{ p.nom }}</span>
+    </div>
+    <div>{{ p.categorie?.nom || p.categorieNom || '-' }}</div>
+    <div>{{ p.normalPrix | number:'1.2-2' }} DA</div>
+    <div>{{ p.megaPrix | number:'1.2-2' }} DA</div>
+    <div class="actions">
+      <a class="btn ghost" [routerLink]="['/admin/produits/edit', p.idProduit]">Modifier</a>
+      <button class="btn danger" (click)="delete(p.idProduit)">Supprimer</button>
+    </div>
+  </div>
+</div>

@@ -6,14 +6,15 @@ import { LoginComponent } from './features/auth/login/login.component';
 import { RegisterComponent } from './features/auth/register/register.component';
 import { PanierComponent } from './features/panier/panier.component';
 import { MesCommandesComponent } from './features/mes-commandes/mes-commandes.component';
-import { DashboardAdminComponent } from './features/admin/dashboard-admin.component';
-
 
 // Guards
 import { AuthGuard } from './core/guards/auth.guard';
 import { AdminGuard } from './core/guards/admin.guard';
 import { MenuListComponent } from './features/menu-list/menu-list.component';
 import { MenuComponent } from './features/menu/menu.component';
+import { AdminLayoutComponent } from './features/admin/admin-layout/admin-layout.component';
+import { AdminProduitsListComponent } from './features/admin/admin-produits-list/admin-produits-list.component';
+import { AdminProduitFormComponent } from './features/admin/admin-produit-form/admin-produit-form.component';
 
 const routes: Routes = [
 
@@ -30,8 +31,17 @@ const routes: Routes = [
   { path: 'commandes', component: MesCommandesComponent, canActivate: [AuthGuard] },
 
   // 🔒 Admin uniquement
-  { path: 'admin', component: DashboardAdminComponent, canActivate: [AdminGuard] },
-
+  {
+    path: 'admin',
+    component: AdminLayoutComponent,
+    canActivate: [AdminGuard],
+    children: [
+      { path: '', redirectTo: 'produits', pathMatch: 'full' },
+      { path: 'produits', component: AdminProduitsListComponent },
+      { path: 'produits/create', component: AdminProduitFormComponent },
+      { path: 'produits/edit/:id', component: AdminProduitFormComponent },
+    ]
+  },
   // ❌ 404
   { path: '**', redirectTo: '' }
 

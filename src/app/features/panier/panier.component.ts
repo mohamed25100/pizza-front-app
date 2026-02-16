@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from 'src/app/core/services/auth.service';
+import { Router } from '@angular/router';
+
 import { CartService } from 'src/app/core/services/cart.service';
 import { CommandeService } from 'src/app/core/services/commande.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { CartItem } from 'src/app/models/cart-item.model';
-
-
 
 @Component({
   selector: 'app-panier',
@@ -20,15 +19,18 @@ export class PanierComponent {
   loading = false;
   errorMsg = '';
 
-  // Livraison (mock UI)
-  livraison = 0; // "Offert"
+  livraison = 0; // Offert
 
   constructor(
     private cartService: CartService,
-    private authService: AuthService,
     private commandeService: CommandeService,
+    private authService: AuthService,
     private router: Router
   ) {}
+
+  // -------------------------
+  // Panier
+  // -------------------------
 
   updateQty(item: CartItem, qty: number) {
     this.cartService.updateQuantity(item.produit.idProduit, Number(qty));
@@ -46,16 +48,21 @@ export class PanierComponent {
     return this.subTotal + this.livraison;
   }
 
+  // -------------------------
+  // Validation commande (US6)
+  // -------------------------
+
   procederPaiement() {
+
     this.errorMsg = '';
 
-    // 🔒 doit être connecté (US6)
     if (!this.authService.isLoggedIn()) {
       this.router.navigate(['/login']);
       return;
     }
 
     const cart = this.cartService.getCart();
+
     if (!cart.length) {
       this.errorMsg = 'Votre panier est vide.';
       return;
@@ -69,6 +76,7 @@ export class PanierComponent {
     };
 
     this.loading = true;
+
     this.commandeService.create(dto).subscribe({
       next: () => {
         this.loading = false;

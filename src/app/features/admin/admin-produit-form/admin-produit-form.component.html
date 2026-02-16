@@ -1,0 +1,46 @@
+<div class="head">
+  <h2>{{ id ? 'Modifier produit' : 'Ajouter produit' }}</h2>
+  <a class="btn ghost" routerLink="/admin/produits">← Retour</a>
+</div>
+
+<p class="error" *ngIf="errorMsg">{{ errorMsg }}</p>
+<p *ngIf="loading">Chargement...</p>
+
+<form class="card" [formGroup]="form" (ngSubmit)="submit()">
+
+  <label>Nom</label>
+  <input formControlName="nom" placeholder="Nom du produit" />
+  <small class="err" *ngIf="form.get('nom')?.touched && form.get('nom')?.invalid">Nom requis</small>
+
+  <label>Description</label>
+  <textarea formControlName="description" rows="4" placeholder="Description complète"></textarea>
+  <small class="err" *ngIf="form.get('description')?.touched && form.get('description')?.invalid">Description requise</small>
+
+  <div class="grid2">
+    <div>
+      <label>Prix normal</label>
+      <input type="number" formControlName="normalPrix" />
+    </div>
+    <div>
+      <label>Prix mega</label>
+      <input type="number" formControlName="megaPrix" />
+    </div>
+  </div>
+
+  <label>Image URL</label>
+  <input formControlName="imageUrl" placeholder="https://..." />
+
+  <label>Catégorie</label>
+  <select formControlName="idCategorie">
+    <option [ngValue]="null">-- Choisir --</option>
+    <option *ngFor="let c of categories" [ngValue]="c.idCategorie">
+      {{ c.nom }}
+    </option>
+  </select>
+  <small class="err" *ngIf="form.get('idCategorie')?.touched && form.get('idCategorie')?.invalid">Catégorie requise</small>
+
+  <button class="btn primary" type="submit" [disabled]="loading || form.invalid">
+    {{ loading ? 'Sauvegarde...' : (id ? 'Mettre à jour' : 'Créer') }}
+  </button>
+
+</form>

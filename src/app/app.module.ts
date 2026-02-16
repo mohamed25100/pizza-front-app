@@ -13,6 +13,9 @@ import { LoginComponent } from './features/auth/login/login.component';
 import { RegisterComponent } from './features/auth/register/register.component';
 import { PanierComponent } from './features/panier/panier.component';
 import { NavbarComponent } from './features/Navbar/navbar.component';
+import { AdminLayoutComponent } from './features/admin/admin-layout/admin-layout.component';
+import { AdminProduitsListComponent } from './features/admin/admin-produits-list/admin-produits-list.component';
+import { AdminProduitFormComponent } from './features/admin/admin-produit-form/admin-produit-form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { NavbarComponent } from './features/Navbar/navbar.component';
     LoginComponent,
     RegisterComponent,
     PanierComponent,
-    NavbarComponent
+    NavbarComponent,
+    AdminLayoutComponent,
+    AdminProduitsListComponent,
+    AdminProduitFormComponent
   ],
   imports: [
     BrowserModule,
