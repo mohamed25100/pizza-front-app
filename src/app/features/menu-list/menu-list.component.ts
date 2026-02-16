@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, map } from 'rxjs';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { CartService } from 'src/app/core/services/cart.service';
+import { CommandeService } from 'src/app/core/services/commande.service';
 import { ProduitService } from 'src/app/core/services/produit.service';
 import { ProduitResponseDTO } from 'src/app/models/produit.model';
 
@@ -20,6 +23,9 @@ export class MenuListComponent implements OnInit {
   sandwiches$!: Observable<ProduitResponseDTO[]>;
   displayed$!: Observable<ProduitResponseDTO[]>;
   cart$ = this.cartService.cart$;
+  loading = false;
+  errorMsg = '';
+
 
   constructor(
     private produitService: ProduitService,

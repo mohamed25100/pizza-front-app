@@ -1,1 +1,136 @@
-<p>panier works!</p>
+<section class="page">
+
+  <a class="back" routerLink="/">← Continuer mes achats</a>
+
+  <h1>Votre Panier</h1>
+  <p class="subtitle">Vérifiez vos articles avant de passer à l'étape finale du régal.</p>
+
+  <div class="layout" *ngIf="cart$ | async as cart">
+
+    <!-- LEFT: LIST -->
+    <div class="left">
+
+      <div class="list-head">
+        <span>ARTICLE</span>
+        <span class="right">TOTAL</span>
+      </div>
+
+      <!-- empty -->
+      <div class="empty" *ngIf="cart.length === 0">
+        Votre panier est vide.
+      </div>
+
+      <!-- items -->
+      <article class="item" *ngFor="let item of cart">
+        <div class="img">
+          <img *ngIf="item.produit.imageUrl; else noimg" [src]="item.produit.imageUrl" alt="{{item.produit.nom}}">
+          <ng-template #noimg>
+            <div class="img-ph">🍕</div>
+          </ng-template>
+        </div>
+
+        <div class="info">
+          <h3>{{ item.produit.nom }}</h3>
+          <p class="desc">{{ item.produit.description }}</p>
+
+          <div class="meta">
+            <span class="tag">Taille Normal</span>
+            <span class="tag">Produit</span>
+          </div>
+
+          <div class="qty">
+            <button (click)="updateQty(item, item.quantity - 1)">−</button>
+
+            <input type="number" min="1"
+                   [value]="item.quantity"
+                   (change)="updateQty(item, $any($event.target).value)">
+
+            <button (click)="updateQty(item, item.quantity + 1)">+</button>
+
+            <button class="delete" (click)="remove(item.produit.idProduit)">
+              🗑 Supprimer
+            </button>
+          </div>
+        </div>
+
+        <div class="prices">
+          <div class="lineTotal">
+            {{ (item.produit.normalPrix * item.quantity) | number:'1.2-2' }} DA
+          </div>
+          <div class="unit">
+            {{ item.produit.normalPrix | number:'1.2-2' }} DA / unité
+          </div>
+        </div>
+      </article>
+
+      <!-- badges -->
+      <div class="badges" *ngIf="cart.length > 0">
+        <div class="badge">
+          🚚 <div><b>Livraison rapide</b><br><small>Moins de 30 minutes</small></div>
+        </div>
+        <div class="badge">
+          🧡 <div><b>Produits frais</b><br><small>Préparé à la commande</small></div>
+        </div>
+        <div class="badge">
+          🔒 <div><b>Paiement sécurisé</b><br><small>Données 100% cryptées</small></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: SUMMARY -->
+    <aside class="right">
+
+      <div class="summary">
+        <h3>Résumé de la commande</h3>
+
+        <div class="row">
+          <span>Sous-total</span>
+          <span>{{ subTotal | number:'1.2-2' }} DA</span>
+        </div>
+
+        <div class="row">
+          <span>Frais de livraison</span>
+          <span class="green">{{ livraison === 0 ? 'Offert' : (livraison | number:'1.2-2') + ' DA' }}</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="promo">
+          <div class="label">CODE PROMO</div>
+          <div class="promo-row">
+            <input placeholder="Entrez votre code">
+            <button class="btn ghost">Appliquer</button>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="row total">
+          <span>Total TTC</span>
+          <span class="orange">{{ totalTTC | number:'1.2-2' }} DA</span>
+        </div>
+
+        <button class="btn pay"
+                (click)="procederPaiement()"
+                [disabled]="cart.length === 0 || loading">
+          {{ loading ? 'Validation...' : 'Procéder au Paiement' }}
+        </button>
+
+        <small class="note">
+          En cliquant sur le bouton, vous acceptez nos conditions générales de vente.
+        </small>
+
+        <p class="error" *ngIf="errorMsg">{{ errorMsg }}</p>
+      </div>
+
+      <div class="help">
+        <h4>Besoin d'aide ?</h4>
+        <p>Notre équipe est disponible 7j/7 de 11h à 23h pour vous accompagner.</p>
+        <a class="phone" href="tel:+330123456789">+33 (0)1 23 45 67 89</a>
+      </div>
+
+    </aside>
+
+  </div>
+</section>

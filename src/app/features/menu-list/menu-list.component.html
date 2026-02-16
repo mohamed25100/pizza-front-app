@@ -127,6 +127,14 @@
                 <strong>{{ total | number:'1.2-2' }} DA</strong>
             </div>
 
+            <div class="cart-total">
+                Total :
+                <strong>{{ total | number:'1.2-2' }} DA</strong>
+            </div>
+
+            <p class="error" *ngIf="errorMsg">{{ errorMsg }}</p>
+
+
         </aside>
 
     </div>

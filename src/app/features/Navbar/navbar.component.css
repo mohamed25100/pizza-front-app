@@ -1,0 +1,94 @@
+.navbar {
+  background: #ffffff;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 900;
+  font-size: 18px;
+  text-decoration: none;
+  color: #ff6e40;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.links a {
+  text-decoration: none;
+  color: #444;
+  font-weight: 600;
+}
+
+.links a.active {
+  color: #ff6e40;
+}
+
+.cart-link {
+  position: relative;
+}
+
+.badge {
+  background: #ff6e40;
+  color: white;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: 999px;
+  margin-left: 6px;
+}
+
+.auth {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user {
+  font-weight: 600;
+  color: #333;
+}
+
+.btn {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn.primary {
+  background: #ff6e40;
+  color: white;
+}
+
+.btn.ghost {
+  background: transparent;
+  border: 1px solid #ddd;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .links {
+    display: none;
+  }
+}

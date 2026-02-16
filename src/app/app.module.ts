@@ -11,6 +11,8 @@ import { MenuComponent } from './features/menu/menu.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './features/auth/login/login.component';
 import { RegisterComponent } from './features/auth/register/register.component';
+import { PanierComponent } from './features/panier/panier.component';
+import { NavbarComponent } from './features/Navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { RegisterComponent } from './features/auth/register/register.component';
     MenuListComponent,
     MenuComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PanierComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
